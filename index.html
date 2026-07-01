@@ -260,8 +260,8 @@ body{background:#0d2243;animation:fadein 0.6s ease both}
 
 <!-- ═══ HERO ═══════════════════════════════════ -->
 <section class="hero" id="sec0">
-  <video class="hero-video" autoplay muted playsinline preload="auto" id="hero-vid">
-    <source src="video-play.mp4#t=4" type="video/mp4">
+  <video class="hero-video" autoplay muted loop playsinline preload="auto" id="hero-vid">
+    <source src="video-play.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay"></div>
   <div class="hero-content">
@@ -328,8 +328,8 @@ body{background:#0d2243;animation:fadein 0.6s ease both}
 
 <!-- ═══ VIDEO INTERLUDE ══════════════════════════ -->
 <section class="s-vid-interlude" id="sec2">
-  <video autoplay muted playsinline preload="none" id="school-vid">
-    <source src="video-school.mp4#t=4" type="video/mp4">
+  <video autoplay muted loop playsinline preload="none" id="school-vid">
+    <source src="video-school.mp4" type="video/mp4">
   </video>
   <div class="vid-overlay"></div>
   <div class="vid-caption">
@@ -433,12 +433,12 @@ body{background:#0d2243;animation:fadein 0.6s ease both}
 </div>
 
 <script>
-// ── Video loop from 4s ────────────────────────
+// ── Video: skip first 4s on load and on loop ──
 ['hero-vid','school-vid'].forEach(id => {
   const v = document.getElementById(id);
   if (!v) return;
-  v.addEventListener('ended', () => { v.currentTime = 4; v.play(); });
-  v.addEventListener('timeupdate', () => { if (v.currentTime < 4) v.currentTime = 4; });
+  v.addEventListener('loadedmetadata', () => { v.currentTime = 4; });
+  v.addEventListener('seeked', () => { if (v.paused) v.play(); });
 });
 
 // ── Page transition ───────────────────────────
