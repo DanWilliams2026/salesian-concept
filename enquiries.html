@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enquiries &mdash; Salesian College Farnborough</title>
+<meta name="description" content="Register your interest or make an enquiry about admissions at Salesian College Farnborough.">
+<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+
+/* ── TABS ─── */
+.enq-tabs{background:var(--navy);padding:0 48px;display:flex;gap:0;border-bottom:1px solid rgba(255,255,255,0.08)}
+.enq-tab{padding:18px 28px;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.45);cursor:pointer;border-bottom:2px solid transparent;transition:color 0.2s,border-color 0.2s;white-space:nowrap;user-select:none}
+.enq-tab:hover{color:rgba(255,255,255,0.75)}
+.enq-tab.active{color:var(--gold);border-bottom-color:var(--gold)}
+
+/* ── FORM PANELS ─── */
+.enq-panel{display:none;padding:64px 48px;background:var(--off-white);min-height:600px}
+.enq-panel.active{display:block}
+.enq-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:340px 1fr;gap:72px;align-items:start}
+
+/* ── SIDEBAR INFO ─── */
+.enq-info .eyebrow{margin-bottom:16px}
+.enq-info h2{font-family:var(--font-serif);font-size:clamp(24px,2.5vw,32px);font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:18px}
+.enq-info h2 em{font-style:italic;font-weight:400}
+.enq-info p{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:14px}
+.enq-contact-block{margin-top:32px;padding:24px;background:#fff;border-radius:8px;border:1px solid var(--border)}
+.enq-contact-block h4{font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--navy);margin-bottom:16px}
+.enq-contact-row{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;font-size:13px;color:var(--muted);line-height:1.5}
+.enq-contact-row:last-child{margin-bottom:0}
+.enq-contact-row i{color:var(--gold);font-size:16px;flex-shrink:0;margin-top:1px}
+.enq-contact-row a{color:var(--navy);transition:color 0.2s}
+.enq-contact-row a:hover{color:var(--gold)}
+
+/* ── FORM WRAPPER ─── */
+.enq-form-wrap{background:#fff;border-radius:10px;border:1px solid var(--border);padding:40px;box-shadow:0 4px 24px rgba(13,34,67,0.06)}
+
+/* ── iSAMS WIDGET OVERRIDES ─── */
+.enq-form-wrap input,
+.enq-form-wrap select,
+.enq-form-wrap textarea{
+  font-family:'Inter',sans-serif !important;
+  font-size:14px !important;
+  border:1px solid var(--border) !important;
+  border-radius:4px !important;
+  padding:10px 14px !important;
+  color:#1a1a1a !important;
+  background:#fff !important;
+  transition:border-color 0.2s !important;
+  width:100% !important;
+}
+.enq-form-wrap input:focus,
+.enq-form-wrap select:focus,
+.enq-form-wrap textarea:focus{
+  outline:none !important;
+  border-color:var(--navy) !important;
+}
+.enq-form-wrap button[type="submit"],
+.enq-form-wrap input[type="submit"]{
+  background:var(--navy) !important;
+  color:#fff !important;
+  font-family:'Inter',sans-serif !important;
+  font-size:11px !important;
+  font-weight:700 !important;
+  letter-spacing:0.1em !important;
+  text-transform:uppercase !important;
+  padding:14px 32px !important;
+  border:none !important;
+  border-radius:3px !important;
+  cursor:pointer !important;
+  transition:background 0.2s !important;
+  width:auto !important;
+}
+.enq-form-wrap button[type="submit"]:hover,
+.enq-form-wrap input[type="submit"]:hover{
+  background:var(--gold) !important;
+  color:var(--navy) !important;
+}
+.enq-form-wrap label{
+  font-size:12px !important;
+  font-weight:600 !important;
+  letter-spacing:0.05em !important;
+  color:var(--navy) !important;
+  display:block !important;
+  margin-bottom:6px !important;
+}
+
+/* ── TRUST STRIP ─── */
+.enq-trust{background:var(--navy);padding:40px 48px}
+.enq-trust-inner{max-width:1000px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.enq-trust-item{display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.6);font-size:13px}
+.enq-trust-item i{color:var(--gold);font-size:22px;flex-shrink:0}
+.enq-trust-item strong{color:#fff;display:block;font-size:13px;margin-bottom:2px}
+.enq-trust-item span{font-size:11px}
+
+</style>
+</head>
+<body>
+
+<nav class="nav solid" id="main-nav">
+  <a href="index.html" class="nav-logo"><img src="logo.png" alt="Salesian College" loading="lazy" decoding="async"></a>
+  <div class="nav-menu">
+    <div class="nav-item"><a href="about.html">About Us</a></div>
+    <div class="nav-item"><a href="admissions.html" class="active">Admissions</a></div>
+    <div class="nav-item"><a href="academic.html">Academic</a></div>
+    <div class="nav-item"><a href="school-life.html">School Life</a></div>
+    <div class="nav-item"><a href="sixth-form.html">Sixth Form</a></div>
+    <div class="nav-item"><a href="news.html">News</a></div>
+    <div class="nav-item"><a href="contact.html">Contact</a></div>
+  </div>
+  <button class="nav-cta" onclick="document.getElementById('tab-general').click()">Enquire now</button>
+</nav>
+
+<!-- Page hero -->
+<div class="page-hero">
+  <img src="https://resources.finalsite.net/images/f_auto,q_auto,t_image_size_4/v1753434492/salesianhantsschuk/tb3mojiud31cozlvtubl/SC250774.jpg" alt="Salesian College" loading="lazy" decoding="async">
+  <div class="page-hero-overlay"></div>
+  <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Enquiries</span></div>
+  <div class="page-hero-content">
+    <div class="page-hero-eyebrow">Get in touch</div>
+    <h1>Make an <em>Enquiry</em></h1>
+  </div>
+</div>
+
+<!-- Tabs -->
+<div class="enq-tabs">
+  <div class="enq-tab active" id="tab-general" onclick="showPanel('general', this)">
+    <i class="ti ti-mail" style="margin-right:7px;font-size:13px"></i>General Enquiry
+  </div>
+  <div class="enq-tab" id="tab-y7" onclick="showPanel('y7', this)">
+    <i class="ti ti-user-plus" style="margin-right:7px;font-size:13px"></i>Year 7&ndash;11 Registration
+  </div>
+  <div class="enq-tab" id="tab-sixth" onclick="showPanel('sixth', this)">
+    <i class="ti ti-school" style="margin-right:7px;font-size:13px"></i>Sixth Form Enquiry
+  </div>
+</div>
+
+<!-- Panel: General Enquiry -->
+<div class="enq-panel active" id="panel-general">
+  <div class="enq-inner">
+    <div class="enq-info">
+      <div class="eyebrow">General enquiry</div>
+      <h2>We'd love to<br>hear from <em>you</em></h2>
+      <p>Whether you have a question about the school, want to find out more about life at Salesian, or simply aren't sure where to start — our admissions team is here to help.</p>
+      <p>We aim to respond to all enquiries within one working day.</p>
+      <div class="enq-contact-block">
+        <h4>Admissions team</h4>
+        <div class="enq-contact-row"><i class="ti ti-phone"></i><span><a href="tel:01252893000">01252 893000</a></span></div>
+        <div class="enq-contact-row"><i class="ti ti-mail"></i><span><a href="mailto:admissions@salesiancollege.com">admissions@salesiancollege.com</a></span></div>
+        <div class="enq-contact-row"><i class="ti ti-map-pin"></i><span>Farnborough Road, Farnborough,<br>Hampshire GU14 8AT</span></div>
+        <div class="enq-contact-row"><i class="ti ti-clock"></i><span>Mon&ndash;Fri, 8:30am&ndash;4:30pm</span></div>
+      </div>
+    </div>
+    <div class="enq-form-wrap" id="form-general">
+      <!-- iSAMS General Enquiry Widget -->
+      <script type="text/javascript">
+        var fwq = {
+          apiRootUrl: 'https://salesiancollege.isams.cloud/api/Rest/1.0/',
+          apiKey: '30714635\x2DACC0\x2D4C9A\x2D8867\x2DDC842737D430',
+          formInstance: '2bbdd079\x2D1151\x2D4702\x2D8f2d\x2Dc363ebc471f7',
+          loadCustomJavascript: false,
+          loadCustomCss: false
+        };
+      </script>
+      <script iw-id="isams-widgets" src="https://salesiancollege.isams.cloud/api/widgets/isams-widgets.min.js"></script>
+      <div iw-id="admissions-enquiry"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Panel: Year 7–11 Registration -->
+<div class="enq-panel" id="panel-y7">
+  <div class="enq-inner">
+    <div class="enq-info">
+      <div class="eyebrow">Year 7&ndash;11 entry</div>
+      <h2>Register your<br>son's <em>interest</em></h2>
+      <p>Completing this form is the first step towards securing a place at Salesian College. Our admissions team will be in touch to discuss next steps, including our entrance assessment.</p>
+      <p>We welcome boys of all faiths and backgrounds who share our commitment to learning, community, and character.</p>
+      <div class="enq-contact-block">
+        <h4>Key dates</h4>
+        <div class="enq-contact-row"><i class="ti ti-calendar"></i><span><strong>Open Morning</strong><br>Saturday 19 September 2026</span></div>
+        <div class="enq-contact-row"><i class="ti ti-calendar"></i><span><strong>Entrance Assessment</strong><br>January 2027</span></div>
+        <div class="enq-contact-row"><i class="ti ti-calendar"></i><span><strong>Offers issued</strong><br>February 2027</span></div>
+        <div class="enq-contact-row"><i class="ti ti-info-circle"></i><span>Places are limited &mdash; early registration is encouraged</span></div>
+      </div>
+    </div>
+    <div class="enq-form-wrap" id="form-y7">
+      <!-- iSAMS Year 7–11 Registration Widget -->
+      <script type="text/javascript">
+        var fwq = {
+          apiRootUrl: 'https://salesiancollege.isams.cloud/api/Rest/1.0/',
+          apiKey: '30714635\x2DACC0\x2D4C9A\x2D8867\x2DDC842737D430',
+          formInstance: '432d2186\x2D3f34\x2D434d\x2D897c\x2Da7b05ec69238',
+          loadCustomJavascript: false,
+          loadCustomCss: false
+        };
+      </script>
+      <script iw-id="isams-widgets" src="https://salesiancollege.isams.cloud/api/widgets/isams-widgets.min.js"></script>
+      <div iw-id="admissions-enquiry"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Panel: Sixth Form -->
+<div class="enq-panel" id="panel-sixth">
+  <div class="enq-inner">
+    <div class="enq-info">
+      <div class="eyebrow">Sixth Form entry</div>
+      <h2>Join our<br><em>Sixth Form</em></h2>
+      <p>Our Sixth Form offers a wide range of A-Level subjects in a supportive, ambitious environment. We welcome applications from both current Salesian students and external candidates.</p>
+      <p>Entry is based on GCSE results and a personal interview. We look for students who are motivated, curious, and ready to take the next step in their academic journey.</p>
+      <div class="enq-contact-block">
+        <h4>Sixth Form admissions</h4>
+        <div class="enq-contact-row"><i class="ti ti-phone"></i><span><a href="tel:01252893000">01252 893000</a></span></div>
+        <div class="enq-contact-row"><i class="ti ti-mail"></i><span><a href="mailto:sixthform@salesiancollege.com">sixthform@salesiancollege.com</a></span></div>
+        <div class="enq-contact-row"><i class="ti ti-calendar"></i><span><strong>Sixth Form Open Evening</strong><br>Thursday 6 November 2026</span></div>
+        <div class="enq-contact-row"><i class="ti ti-info-circle"></i><span>Typical entry requirement: 5 GCSEs at grade 5 or above</span></div>
+      </div>
+    </div>
+    <div class="enq-form-wrap" id="form-sixth">
+      <!-- iSAMS Sixth Form Enquiry Widget -->
+      <script type="text/javascript">
+        var fwq = {
+          apiRootUrl: 'https://salesiancollege.isams.cloud/api/Rest/1.0/',
+          apiKey: '30714635\x2DACC0\x2D4C9A\x2D8867\x2DDC842737D430',
+          formInstance: '5c80731c\x2D738b\x2D4a27\x2D9f72\x2D04063cbc8c48',
+          loadCustomJavascript: false,
+          loadCustomCss: false
+        };
+      </script>
+      <script iw-id="isams-widgets" src="https://salesiancollege.isams.cloud/api/widgets/isams-widgets.min.js"></script>
+      <div iw-id="admissions-enquiry"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Trust strip -->
+<div class="enq-trust">
+  <div class="enq-trust-inner">
+    <div class="enq-trust-item">
+      <i class="ti ti-lock"></i>
+      <div><strong>Your data is safe</strong><span>All information is handled in accordance with GDPR and our privacy policy</span></div>
+    </div>
+    <div class="enq-trust-item">
+      <i class="ti ti-clock"></i>
+      <div><strong>Fast response</strong><span>We aim to reply within one working day</span></div>
+    </div>
+    <div class="enq-trust-item">
+      <i class="ti ti-users"></i>
+      <div><strong>Personal service</strong><span>You'll speak to a real member of our admissions team</span></div>
+    </div>
+    <div class="enq-trust-item">
+      <i class="ti ti-award"></i>
+      <div><strong>ISI Exceptional</strong><span>Independently inspected and rated exceptional</span></div>
+    </div>
+  </div>
+</div>
+
+<script>
+function showPanel(id, tab) {
+  document.querySelectorAll('.enq-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.enq-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  tab.classList.add('active');
+}
+
+// Smooth scroll to tabs when nav CTA clicked
+document.querySelector('.nav-cta').addEventListener('click', () => {
+  document.querySelector('.enq-tabs').scrollIntoView({behavior:'smooth'});
+});
+</script>
+
+</body>
+</html>
