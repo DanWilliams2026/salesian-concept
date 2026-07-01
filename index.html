@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salesian College — Farnborough</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<link rel="stylesheet" href="shared.css">
+<style>
+/* ── Homepage overrides ─────────────────────── */
+body{background:#0d2243;animation:fadein 0.6s ease both}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+
+/* ── HERO ────────────────────────────────────── */
+.hero{position:relative;height:100vh;min-height:640px;display:flex;align-items:flex-end;overflow:hidden;background:#000}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.05) 35%,rgba(13,34,67,0.7) 72%,rgba(13,34,67,0.97) 100%)}
+.hero-content{position:relative;z-index:2;padding:0 80px 108px;max-width:900px}
+
+.hero-eyebrow{font-size:10px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:#c9a84c;margin-bottom:28px;display:flex;align-items:center;gap:14px}
+.hero-eyebrow::before{content:'';display:block;width:32px;height:1px;background:#c9a84c}
+
+.hero-h1{font-family:'Playfair Display',serif;font-size:clamp(54px,7vw,100px);font-weight:700;color:#fff;line-height:1.0;margin-bottom:30px;overflow:hidden}
+.hero-h1 em{font-style:italic;font-weight:400}
+.hero-h1 span{display:block;transform:translateY(100%);animation:slideup 1s cubic-bezier(0.22,1,0.36,1) 0.3s forwards}
+.hero-h1 span:nth-child(2){animation-delay:0.5s}
+@keyframes slideup{to{transform:translateY(0)}}
+
+.hero-sub{font-size:17px;color:rgba(255,255,255,0.6);line-height:1.85;max-width:500px;margin-bottom:44px;opacity:0;animation:fadeup 1s ease 0.9s forwards}
+@keyframes fadeup{to{opacity:1}}
+
+.hero-actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap;opacity:0;animation:fadeup 1s ease 1.1s forwards}
+.btn-gold{background:#c9a84c;color:#0d2243;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:16px 34px;border:none;border-radius:3px;cursor:pointer;transition:background 0.2s;text-decoration:none;display:inline-block}
+.btn-gold:hover{background:#e0bc62}
+.btn-ghost{color:rgba(255,255,255,0.7);font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:16px 28px;border:1px solid rgba(255,255,255,0.28);border-radius:3px;cursor:pointer;transition:all 0.2s;text-decoration:none;display:inline-block}
+.btn-ghost:hover{border-color:rgba(255,255,255,0.8);color:#fff}
+
+.hero-scroll-cue{position:absolute;bottom:42px;right:60px;z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeup 1s ease 1.5s forwards;cursor:pointer}
+.hero-scroll-line{width:1px;height:50px;background:linear-gradient(to bottom,#c9a84c 0%,transparent 100%)}
+.hero-scroll-txt{font-size:8px;letter-spacing:0.24em;text-transform:uppercase;color:rgba(255,255,255,0.35);writing-mode:vertical-rl}
+
+/* ticker */
+.ticker-bar{position:absolute;bottom:0;left:0;right:0;z-index:4;background:rgba(201,168,76,0.96);height:38px;display:flex;align-items:center;overflow:hidden}
+.ticker-track{display:flex;animation:ticker 34s linear infinite;white-space:nowrap;will-change:transform;transform:translateZ(0)}
+.ticker-track:hover{animation-play-state:paused}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker-item{font-size:10px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#0d2243;padding:0 44px;display:flex;align-items:center;gap:14px}
+.ticker-sep{width:4px;height:4px;background:rgba(13,34,67,0.3);border-radius:50%}
+
+/* ── STATEMENT ───────────────────────────────── */
+.s-statement{background:#fff;padding:140px 80px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.s-label{font-size:9px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:#c9a84c;margin-bottom:32px}
+.s-big{font-family:'Playfair Display',serif;font-size:clamp(34px,5vw,68px);font-weight:400;font-style:italic;color:#0d2243;line-height:1.2;max-width:920px;margin-bottom:28px}
+.s-body{font-size:16px;color:#7a8090;max-width:580px;line-height:1.9;margin-bottom:72px}
+
+.pillars-strip{display:grid;grid-template-columns:repeat(3,1fr);background:#e8eaef;gap:1px;width:100%;max-width:1000px;border-radius:4px;overflow:hidden}
+.p-tile{background:#fff;padding:48px 40px;text-align:left;position:relative;overflow:hidden;cursor:default;transition:background 0.25s}
+.p-tile:hover{background:#fdfcf9}
+.p-tile::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:#c9a84c;transition:width 0.45s cubic-bezier(0.22,1,0.36,1)}
+.p-tile:hover::after{width:100%}
+.p-tile-n{font-family:'Playfair Display',serif;font-size:52px;font-weight:700;color:#ece9e3;line-height:1;margin-bottom:18px;transition:color 0.25s}
+.p-tile:hover .p-tile-n{color:rgba(201,168,76,0.25)}
+.p-tile h3{font-size:15px;font-weight:700;color:#0d2243;margin-bottom:10px}
+.p-tile p{font-size:13px;color:#8a90a0;line-height:1.78}
+
+/* ── VIDEO INTERLUDE ─────────────────────────── */
+.s-vid-interlude{position:relative;height:72vh;min-height:480px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.s-vid-interlude video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vid-overlay{position:absolute;inset:0;background:rgba(13,34,67,0.58)}
+.vid-caption{position:relative;z-index:2;text-align:center;padding:0 48px}
+.vid-caption .eyebrow-tag{font-size:9px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(201,168,76,0.85);margin-bottom:20px}
+.vid-caption h2{font-family:'Playfair Display',serif;font-size:clamp(34px,4.5vw,64px);font-weight:700;color:#fff;line-height:1.08;margin-bottom:26px}
+.vid-caption h2 em{font-style:italic;font-weight:400}
+.vid-caption p{font-size:16px;color:rgba(255,255,255,0.6);max-width:520px;margin:0 auto 38px;line-height:1.85}
+
+/* ── STATS ───────────────────────────────────── */
+.s-stats{background:#0d2243;padding:128px 80px}
+.stats-layout{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 2.2fr;gap:96px;align-items:center}
+.stats-intro .s-label{text-align:left;margin-bottom:20px;color:rgba(201,168,76,0.75)}
+.stats-intro h2{font-family:'Playfair Display',serif;font-size:clamp(30px,3.2vw,46px);font-weight:700;color:#fff;line-height:1.15;margin-bottom:18px}
+.stats-intro h2 em{font-style:italic;font-weight:400;color:rgba(255,255,255,0.5)}
+.stats-intro p{font-size:14px;color:rgba(255,255,255,0.38);line-height:1.85}
+.stats-4{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(255,255,255,0.05);border-radius:6px;overflow:hidden}
+.s-cell{background:rgba(255,255,255,0.025);padding:46px 38px;transition:background 0.25s;cursor:default}
+.s-cell:hover{background:rgba(255,255,255,0.06)}
+.s-num{font-family:'Playfair Display',serif;font-size:60px;font-weight:700;color:#c9a84c;line-height:1;margin-bottom:10px}
+.s-lbl{font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.32)}
+.s-desc{font-size:12px;color:rgba(255,255,255,0.18);margin-top:7px;line-height:1.55}
+
+/* ── QUOTE BREAK ─────────────────────────────── */
+.s-quote{background:#c9a84c;padding:100px 80px;text-align:center;display:flex;flex-direction:column;align-items:center}
+.q-mark{font-family:'Playfair Display',serif;font-size:110px;color:rgba(0,0,0,0.12);line-height:0.65;margin-bottom:28px}
+.q-text{font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,36px);font-style:italic;color:#0d2243;max-width:760px;line-height:1.55;margin-bottom:22px}
+.q-attr{font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(13,34,67,0.4)}
+
+/* ── VISIT / CTA ─────────────────────────────── */
+.s-visit{background:#f5f3ee;padding:128px 80px;display:grid;grid-template-columns:1fr 1fr;gap:88px;align-items:start;max-width:100%}
+.visit-info .s-label{text-align:left;margin-bottom:22px}
+.visit-info h2{font-family:'Playfair Display',serif;font-size:clamp(30px,3.5vw,52px);font-weight:700;color:#0d2243;line-height:1.1;margin-bottom:22px}
+.visit-info h2 em{font-style:italic;font-weight:400}
+.visit-info p{font-size:15px;color:#6a7080;line-height:1.9;margin-bottom:36px}
+.c-rows{display:flex;flex-direction:column;gap:18px}
+.c-row{display:flex;gap:14px;align-items:flex-start}
+.c-icon{width:38px;height:38px;border:1px solid #d4d8e4;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#0d2243;flex-shrink:0}
+.c-row strong{display:block;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#0d2243;margin-bottom:3px}
+.c-row span{font-size:13px;color:#7a8090}
+
+.event-card{background:#fff;border-radius:8px;padding:40px;box-shadow:0 4px 32px rgba(13,34,67,0.07)}
+.event-card h3{font-family:'Playfair Display',serif;font-size:22px;color:#0d2243;margin-bottom:28px}
+.ev-row{display:flex;gap:16px;align-items:flex-start;padding:15px 0;border-bottom:1px solid #f0f2f7}
+.ev-row:last-of-type{border-bottom:none}
+.ev-date{width:50px;height:56px;background:#0d2243;border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0}
+.ev-day{font-size:20px;font-weight:700;color:#c9a84c;line-height:1}
+.ev-mon{font-size:8px;color:rgba(201,168,76,0.5);letter-spacing:0.08em;text-transform:uppercase;margin-top:2px}
+.ev-name{font-size:14px;font-weight:500;color:#0d2243;line-height:1.35;margin-bottom:3px}
+.ev-time{font-size:12px;color:#aab0be}
+.ev-actions{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
+.btn-navy{background:#0d2243;color:#fff;font-size:11px;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;padding:14px 26px;border:none;border-radius:3px;cursor:pointer;transition:background 0.2s;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn-navy:hover{background:#1a3a5c}
+.btn-outline{background:transparent;color:#0d2243;font-size:11px;font-weight:600;letter-spacing:0.09em;text-transform:uppercase;padding:14px 24px;border:1px solid #d4d8e4;border-radius:3px;cursor:pointer;transition:all 0.2s;text-decoration:none;display:inline-block}
+.btn-outline:hover{border-color:#0d2243}
+
+/* ── FOOTER STRIP ────────────────────────────── */
+.footer-strip{background:#0d2243;padding:40px 80px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,0.07)}
+.footer-logo img{height:36px;filter:drop-shadow(0 1px 3px rgba(0,0,0,0.3))}
+.footer-links{display:flex;gap:28px}
+.footer-links a{font-size:11px;color:rgba(255,255,255,0.35);letter-spacing:0.04em;transition:color 0.2s}
+.footer-links a:hover{color:#c9a84c}
+.footer-copy{font-size:11px;color:rgba(255,255,255,0.2)}
+
+/* ── MODAL ───────────────────────────────────── */
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,0.72);z-index:900;display:none;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+.modal-bg.open{display:flex}
+.modal{background:#fff;border-radius:10px;padding:40px;max-width:440px;width:90%;position:relative;box-shadow:0 24px 60px rgba(0,0,0,0.35)}
+.modal h3{font-family:'Playfair Display',serif;font-size:24px;color:#0d2243;margin-bottom:8px}
+.modal>p{font-size:13px;color:#6a7080;line-height:1.7;margin-bottom:24px}
+.modal-close{position:absolute;top:14px;right:18px;font-size:22px;cursor:pointer;color:#bbb;background:none;border:none;line-height:1;transition:color 0.2s}
+.modal-close:hover{color:#0d2243}
+.form-row{margin-bottom:12px}
+.form-row label{display:block;font-size:11px;font-weight:600;color:#0d2243;margin-bottom:5px;letter-spacing:0.04em}
+.form-row input,.form-row select{width:100%;padding:11px 14px;border:1px solid #dde1ea;border-radius:4px;font-size:13px;font-family:'Inter',sans-serif;outline:none;transition:border-color 0.2s;color:#1a1a1a;background:#fff}
+.form-row input:focus,.form-row select:focus{border-color:#c9a84c;box-shadow:0 0 0 3px rgba(201,168,76,0.1)}
+.modal-submit{width:100%;background:#0d2243;color:#fff;padding:13px;border:none;border-radius:4px;font-size:12px;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;cursor:pointer;font-family:'Inter',sans-serif;transition:background 0.2s;margin-top:4px}
+.modal-submit:hover{background:#1a3a5c}
+.modal-success{text-align:center;padding:20px 0;display:none}
+.modal-success i{font-size:40px;color:#c9a84c;display:block;margin-bottom:12px}
+.modal-success h4{font-family:'Playfair Display',serif;font-size:20px;color:#0d2243;margin-bottom:8px}
+.modal-success p{font-size:13px;color:#7a8090}
+
+/* ── NAV DOTS ────────────────────────────────── */
+.nav-dots{position:fixed;right:16px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:8px;z-index:200}
+.nav-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.2);border:none;cursor:pointer;transition:all 0.3s;padding:0}
+.nav-dot.active{background:#c9a84c;height:16px;border-radius:3px}
+
+/* ── PROGRESS BAR ────────────────────────────── */
+#scroll-prog{position:fixed;top:0;left:0;right:0;height:2px;background:#c9a84c;transform-origin:left center;transform:scaleX(0);z-index:9999;pointer-events:none}
+
+/* ── REVEALS ─────────────────────────────────── */
+.rv{opacity:0;transform:translateY(28px);transition:opacity 0.85s cubic-bezier(0.22,1,0.36,1),transform 0.85s cubic-bezier(0.22,1,0.36,1)}
+.rv.in{opacity:1;transform:none}
+.img-wipe{position:relative;overflow:hidden}
+.img-wipe::after{content:'';position:absolute;inset:0;background:#0d2243;transform:translateX(0);transition:transform 1.1s cubic-bezier(0.77,0,0.175,1);z-index:5;pointer-events:none}
+.img-wipe.in::after{transform:translateX(102%)}
+</style>
+</head>
+<body>
+
+<div id="scroll-prog"></div>
+
+<!-- NAV (uses shared.css .nav) -->
+<nav class="nav at-top" id="main-nav">
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="Salesian College">
+  </a>
+  <div class="nav-menu">
+    <div class="nav-item">
+      <a href="about.html">About Us</a>
+      <div class="dropdown">
+        <a href="about.html">Headmaster's Welcome</a>
+        <a href="about-mission.html">Mission &amp; Values</a>
+        <a href="about-why-salesian.html">The Salesian Difference</a>
+        <a href="about-history.html">School History</a>
+        <a href="about-founder.html">Our Founder</a>
+        <div class="dropdown-divider"></div>
+        <a href="about-governing-body.html">Governing Body</a>
+        <a href="about-staff.html">Staff List</a>
+        <a href="about-alumni.html">Alumni</a>
+        <div class="dropdown-divider"></div>
+        <a href="about-policies.html">Policies &amp; Reports</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <a href="admissions.html">Admissions</a>
+      <div class="dropdown">
+        <a href="admissions.html">Introduction</a>
+        <a href="admissions-open-days.html">Open Events</a>
+        <a href="admissions-registration.html">Registration</a>
+        <a href="admissions-entrance.html">Entrance Assessment</a>
+        <a href="admissions-fees.html">Fees</a>
+        <a href="admissions-scholarships.html">Scholarships &amp; Bursaries</a>
+        <a href="admissions-prospectus.html">Prospectus</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <a href="academic.html">Academic</a>
+      <div class="dropdown">
+        <a href="academic.html">Introduction</a>
+        <a href="academic-curriculum.html">Curriculum</a>
+        <a href="academic-results.html">Examination Results</a>
+        <a href="academic-destinations.html">Academic Destinations</a>
+        <div class="dropdown-divider"></div>
+        <a href="academic-apple.html">Apple Distinguished School</a>
+        <a href="academic-digital.html">Digital Learning</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <a href="school-life.html">School Life</a>
+      <div class="dropdown">
+        <a href="school-life.html">Overview</a>
+        <a href="school-life-clubs.html">Clubs &amp; Societies</a>
+        <a href="school-life-visits.html">Residential Visits</a>
+        <a href="school-life-charity.html">Charitable Work</a>
+        <a href="school-life-term-dates.html">Term Dates</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <a href="sixth-form-life.html">Sixth Form</a>
+      <div class="dropdown">
+        <a href="sixth-form-life.html">Sixth Form Life</a>
+        <a href="sixth-form-academic.html">A-Level Subjects</a>
+        <a href="sixth-form-admissions.html">How to Apply</a>
+        <a href="sixth-form-scholarships.html">Scholarships &amp; Bursaries</a>
+        <a href="sixth-form-enrichment.html">Enrichment</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <a href="news.html">News</a>
+      <div class="dropdown">
+        <a href="news.html">Latest News</a>
+        <a href="news-college.html">College News</a>
+        <a href="news-publications.html">Publications</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <button class="nav-cta" onclick="openModal()">Book a tour</button>
+</nav>
+
+<!-- NAV DOTS -->
+<div class="nav-dots">
+  <button class="nav-dot active" onclick="scrollToSec(0)" title="Home"></button>
+  <button class="nav-dot" onclick="scrollToSec(1)" title="About"></button>
+  <button class="nav-dot" onclick="scrollToSec(2)" title="Life"></button>
+  <button class="nav-dot" onclick="scrollToSec(3)" title="Results"></button>
+  <button class="nav-dot" onclick="scrollToSec(4)" title="Quote"></button>
+  <button class="nav-dot" onclick="scrollToSec(5)" title="Visit"></button>
+</div>
+
+<!-- ═══ HERO ═══════════════════════════════════ -->
+<section class="hero" id="sec0">
+  <video class="hero-video" autoplay muted playsinline preload="auto" id="hero-vid">
+    <source src="video-play.mp4#t=4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Independent Catholic School · Farnborough · Est. 1901</div>
+    <h1 class="hero-h1">
+      <span>Where every boy</span>
+      <span>finds his <em>place.</em></span>
+    </h1>
+    <p class="hero-sub">An independent Catholic grammar school in Farnborough — where small classes, deep pastoral care, and the Salesian spirit of Don Bosco shape young men for life.</p>
+    <div class="hero-actions">
+      <button class="btn-gold" onclick="openModal()">Book an open morning</button>
+      <a class="btn-ghost" href="about.html">Discover more</a>
+    </div>
+  </div>
+  <div class="hero-scroll-cue" onclick="scrollToSec(1)">
+    <div class="hero-scroll-line"></div>
+    <div class="hero-scroll-txt">Scroll</div>
+  </div>
+  <div class="ticker-bar">
+    <div class="ticker-track">
+      <span class="ticker-item">Academic excellence <span class="ticker-sep"></span></span>
+      <span class="ticker-item">83% GCSE grades 6–9 <span class="ticker-sep"></span></span>
+      <span class="ticker-item">Founded 1901 <span class="ticker-sep"></span></span>
+      <span class="ticker-item">Co-educational Sixth Form <span class="ticker-sep"></span></span>
+      <span class="ticker-item">Apple Distinguished School <span class="ticker-sep"></span></span>
+      <span class="ticker-item">100% university placement <span class="ticker-sep"></span></span>
+      <span class="ticker-item">3,000+ Salesian schools worldwide <span class="ticker-sep"></span></span>
+      <span class="ticker-item">Farnborough · Hampshire <span class="ticker-sep"></span></span>
+      <span class="ticker-item">Academic excellence <span class="ticker-sep"></span></span>
+      <span class="ticker-item">83% GCSE grades 6–9 <span class="ticker-sep"></span></span>
+      <span class="ticker-item">Founded 1901 <span class="ticker-sep"></span></span>
+      <span class="ticker-item">Co-educational Sixth Form <span class="ticker-sep"></span></span>
+      <span class="ticker-item">Apple Distinguished School <span class="ticker-sep"></span></span>
+      <span class="ticker-item">100% university placement <span class="ticker-sep"></span></span>
+      <span class="ticker-item">3,000+ Salesian schools worldwide <span class="ticker-sep"></span></span>
+      <span class="ticker-item">Farnborough · Hampshire <span class="ticker-sep"></span></span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ STATEMENT ════════════════════════════════ -->
+<section class="s-statement" id="sec1">
+  <div class="s-label rv">The Salesian Promise</div>
+  <p class="s-big rv">"Every young person has a gift.<br>Our job is to help them find it."</p>
+  <p class="s-body rv">Founded by the Salesians of Don Bosco in 1901, we believe in the potential of every student. Our approach is simple: know each boy by name, meet him where he is, and never stop believing in who he could become.</p>
+  <div class="pillars-strip">
+    <div class="p-tile rv">
+      <div class="p-tile-n">01</div>
+      <h3>Academic Rigour</h3>
+      <p>Around 10 students per class from Year 7 to A-level. Every pupil seen, stretched, and supported — every single lesson.</p>
+    </div>
+    <div class="p-tile rv">
+      <div class="p-tile-n">02</div>
+      <h3>Community &amp; Care</h3>
+      <p>The Salesian tradition places the relationship between teacher and student at the heart of everything. No boy falls through the cracks.</p>
+    </div>
+    <div class="p-tile rv">
+      <div class="p-tile-n">03</div>
+      <h3>Faith &amp; Character</h3>
+      <p>Rooted in reason, religion, and loving kindness — we graduate confident, compassionate young men ready for the world beyond school.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ VIDEO INTERLUDE ══════════════════════════ -->
+<section class="s-vid-interlude" id="sec2">
+  <video autoplay muted playsinline preload="none" id="school-vid">
+    <source src="video-school.mp4#t=4" type="video/mp4">
+  </video>
+  <div class="vid-overlay"></div>
+  <div class="vid-caption">
+    <div class="eyebrow-tag rv">Life at Salesian</div>
+    <h2 class="rv">Sport. Arts. Faith. <em>Community.</em></h2>
+    <p class="rv">Over 40 clubs and societies, from football pitches to performing arts stages, from Lourdes pilgrimages to Duke of Edinburgh expeditions. Every student finds his place — and his passion.</p>
+    <a class="btn-gold rv" href="school-life.html">Explore school life</a>
+  </div>
+</section>
+
+<!-- ═══ STATS ════════════════════════════════════ -->
+<section class="s-stats" id="sec3">
+  <div class="stats-layout">
+    <div class="stats-intro">
+      <div class="s-label rv" style="color:rgba(201,168,76,0.7)">The numbers</div>
+      <h2 class="rv">Results that speak <em>for themselves</em></h2>
+      <p class="rv">Inspected as 'Excellent' across all areas by the ISI — our results reflect decades of dedicated teaching in an environment where every student is known and valued.</p>
+    </div>
+    <div class="stats-4">
+      <div class="s-cell rv"><div class="s-num" data-count="83">0</div><div class="s-lbl">GCSE grades 6–9</div><div class="s-desc">Above the national independent school average</div></div>
+      <div class="s-cell rv"><div class="s-num" data-count="10">0</div><div class="s-lbl">Students per class</div><div class="s-desc">Individual attention, every lesson</div></div>
+      <div class="s-cell rv"><div class="s-num" data-count="120">0</div><div class="s-lbl">Years of excellence</div><div class="s-desc">A proud tradition since 1901</div></div>
+      <div class="s-cell rv"><div class="s-num" data-count="100">0</div><div class="s-lbl">University placement</div><div class="s-desc">Including 68% Russell Group</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ QUOTE ════════════════════════════════════ -->
+<section class="s-quote" id="sec4">
+  <div class="q-mark rv">"</div>
+  <p class="q-text rv">The secret of education lies in respecting the pupil — every boy here has a gift, and our duty is to help him find it.</p>
+  <div class="q-attr rv">Inspired by St. John Bosco · Founder of the Salesian Order</div>
+</section>
+
+<!-- ═══ VISIT ════════════════════════════════════ -->
+<section class="s-visit" id="sec5">
+  <div class="visit-info">
+    <div class="s-label rv">Come and see us</div>
+    <h2 class="rv">The best way to understand Salesian is to <em>experience it.</em></h2>
+    <p class="rv">Our open mornings give you and your child the chance to meet our staff, explore the school, and feel first-hand what makes our community so special. We'd love to welcome you.</p>
+    <div class="c-rows">
+      <div class="c-row rv"><div class="c-icon"><i class="ti ti-phone"></i></div><div><strong>Phone</strong><span>01252 893 000 · Mon–Fri 8am–5pm</span></div></div>
+      <div class="c-row rv"><div class="c-icon"><i class="ti ti-mail"></i></div><div><strong>Email</strong><span>info@salesiancollege.com</span></div></div>
+      <div class="c-row rv"><div class="c-icon"><i class="ti ti-map-pin"></i></div><div><strong>Address</strong><span>Reading Road, Farnborough, Hampshire GU14 6PA</span></div></div>
+    </div>
+  </div>
+  <div class="event-card rv">
+    <h3>Upcoming open events</h3>
+    <div class="ev-row">
+      <div class="ev-date"><div class="ev-day">12</div><div class="ev-mon">Jul</div></div>
+      <div><div class="ev-name">Open Morning — Year 7 entry</div><div class="ev-time">9:00am – 12:00pm · Main Hall</div></div>
+    </div>
+    <div class="ev-row">
+      <div class="ev-date"><div class="ev-day">18</div><div class="ev-mon">Jul</div></div>
+      <div><div class="ev-name">Sixth Form Open Evening</div><div class="ev-time">6:00pm – 8:30pm</div></div>
+    </div>
+    <div class="ev-row">
+      <div class="ev-date"><div class="ev-day">03</div><div class="ev-mon">Sep</div></div>
+      <div><div class="ev-name">Autumn term begins — all years</div><div class="ev-time">8:30am</div></div>
+    </div>
+    <div class="ev-actions">
+      <button class="btn-navy" onclick="openModal()"><i class="ti ti-calendar"></i> Reserve your place</button>
+      <a class="btn-outline" href="contact.html">All contact details</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER STRIP -->
+<footer class="footer-strip">
+  <div class="footer-logo"><img src="logo.png" alt="Salesian College"></div>
+  <div class="footer-links">
+    <a href="about-policies.html">Policies</a>
+    <a href="contact.html">Contact</a>
+    <a href="about-alumni.html">Alumni</a>
+    <a href="admissions-prospectus.html">Prospectus</a>
+  </div>
+  <div class="footer-copy">© 2025 Salesian College, Farnborough. Registered Charity.</div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-bg" id="modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div id="modal-form-wrap">
+      <h3>Book an open morning</h3>
+      <p>Fill in your details and we'll be in touch to confirm your place.</p>
+      <div class="form-row"><label>Full name</label><input type="text" placeholder="Your full name"></div>
+      <div class="form-row"><label>Email</label><input type="email" placeholder="your@email.com"></div>
+      <div class="form-row"><label>Phone</label><input type="tel" placeholder="01234 567 890"></div>
+      <div class="form-row"><label>Child's year group</label>
+        <select><option value="" disabled selected>Select year group</option><option>Year 5</option><option>Year 6</option><option>Year 7</option><option>Year 8</option></select>
+      </div>
+      <button class="modal-submit" onclick="submitModal()">Send enquiry →</button>
+    </div>
+    <div class="modal-success" id="modal-success">
+      <i class="ti ti-circle-check"></i>
+      <h4>Thank you!</h4>
+      <p>We've received your enquiry and will be in touch within one working day.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Video loop from 4s ────────────────────────
+['hero-vid','school-vid'].forEach(id => {
+  const v = document.getElementById(id);
+  if (!v) return;
+  v.addEventListener('ended', () => { v.currentTime = 4; v.play(); });
+  v.addEventListener('timeupdate', () => { if (v.currentTime < 4) v.currentTime = 4; });
+});
+
+// ── Page transition ───────────────────────────
+document.addEventListener('click', e => {
+  const a = e.target.closest('a');
+  if (!a || !a.href) return;
+  const url = new URL(a.href, location.href);
+  if (url.origin !== location.origin) return;
+  if (a.target === '_blank') return;
+  if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+  if (url.pathname === location.pathname && url.hash) return;
+  e.preventDefault();
+  document.body.style.transition = 'opacity 0.28s ease';
+  document.body.style.opacity = '0';
+  setTimeout(() => { location.href = a.href; }, 260);
+});
+
+// ── Scroll progress bar ───────────────────────
+const prog = document.getElementById('scroll-prog');
+let rafProg = false;
+window.addEventListener('scroll', () => {
+  if (rafProg) return;
+  rafProg = true;
+  requestAnimationFrame(() => {
+    rafProg = false;
+    const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+    prog.style.transform = 'scaleX(' + Math.min(pct, 1) + ')';
+  });
+}, {passive: true});
+
+// ── Nav scroll state ──────────────────────────
+const nav = document.getElementById('main-nav');
+let rafNav = false;
+window.addEventListener('scroll', () => {
+  if (rafNav) return;
+  rafNav = true;
+  requestAnimationFrame(() => {
+    rafNav = false;
+    const scrolled = window.scrollY > 80;
+    nav.classList.toggle('scrolled', scrolled);
+    nav.classList.toggle('at-top', !scrolled);
+  });
+}, {passive: true});
+
+// ── Section nav dots ──────────────────────────
+const SECS = ['sec0','sec1','sec2','sec3','sec4','sec5'];
+const dots = document.querySelectorAll('.nav-dot');
+function scrollToSec(i) {
+  const el = document.getElementById(SECS[i]);
+  if (el) window.scrollTo({top: el.offsetTop, behavior: 'smooth'});
+}
+const dotIo = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const i = SECS.indexOf(e.target.id);
+      if (i >= 0) dots.forEach((d, j) => d.classList.toggle('active', j === i));
+    }
+  });
+}, {threshold: 0.4});
+SECS.forEach(id => { const el = document.getElementById(id); if (el) dotIo.observe(el); });
+
+// ── Scroll reveals ────────────────────────────
+const revealIo = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('in');
+    revealIo.unobserve(e.target);
+  });
+}, {threshold: 0.12, rootMargin: '0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach((el, i) => {
+  el.style.transitionDelay = (i % 8 * 0.07) + 's';
+  revealIo.observe(el);
+});
+
+// ── Count-up stats ────────────────────────────
+const SUFFIXES = {'83':'%','10':'','120':'+','100':'%'};
+const statsIo = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.querySelectorAll('[data-count]').forEach((el, i) => {
+      const target = +el.dataset.count;
+      const suffix = SUFFIXES[el.dataset.count] || '';
+      setTimeout(() => {
+        let v = 0; const inc = target / (1800 / 16);
+        const t = setInterval(() => {
+          v = Math.min(v + inc, target);
+          el.textContent = Math.floor(v) + suffix;
+          if (v >= target) clearInterval(t);
+        }, 16);
+      }, i * 180);
+    });
+    statsIo.unobserve(e.target);
+  });
+}, {threshold: 0.3});
+const statsEl = document.getElementById('sec3');
+if (statsEl) statsIo.observe(statsEl);
+
+// ── Modal ─────────────────────────────────────
+function openModal() {
+  document.getElementById('modal').classList.add('open');
+  document.getElementById('modal-form-wrap').style.display = 'block';
+  document.getElementById('modal-success').style.display = 'none';
+}
+function closeModal() { document.getElementById('modal').classList.remove('open'); }
+function submitModal() {
+  document.getElementById('modal-form-wrap').style.display = 'none';
+  document.getElementById('modal-success').style.display = 'block';
+}
+document.getElementById('modal').addEventListener('click', e => {
+  if (e.target === document.getElementById('modal')) closeModal();
+});
+</script>
+</body>
+</html>

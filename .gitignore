@@ -1,0 +1,8 @@
+# Large video files — host separately (over GitHub's 100MB limit)
+video-play.mp4
+video-school.mp4
+*.mp4
+
+# OS
+.DS_Store
+Thumbs.db
