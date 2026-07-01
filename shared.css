@@ -3,10 +3,10 @@
 /* ── Reset ─────────────────────────────── */
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;color:#1a1a1a;background:#fff;overflow-x:hidden;animation:page-in 0.45s cubic-bezier(0.22,1,0.36,1) both}
-@keyframes page-in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-body.page-out{animation:page-out 0.3s cubic-bezier(0.4,0,1,1) both}
-@keyframes page-out{to{opacity:0;transform:translateY(-10px)}}
+body{font-family:'Inter',sans-serif;color:#1a1a1a;background:#fff;overflow-x:hidden;animation:page-in 0.45s ease both}
+@keyframes page-in{from{opacity:0}to{opacity:1}}
+body.page-out{animation:page-out 0.28s ease both}
+@keyframes page-out{to{opacity:0}}
 img{display:block;max-width:100%}
 a{text-decoration:none;color:inherit}
 
