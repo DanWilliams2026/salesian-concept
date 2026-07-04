@@ -7,23 +7,20 @@
 <link rel="stylesheet" href="shared.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
-.adm-hero{position:relative;height:100vh;min-height:600px;display:flex;align-items:flex-end;overflow:hidden}
-.adm-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.adm-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.15) 0%,rgba(0,0,0,0.05) 30%,rgba(13,34,67,0.65) 68%,rgba(13,34,67,0.96) 100%)}
-.adm-hero-content{position:relative;z-index:2;padding:0 80px 100px;max-width:900px}
-.adm-hero-eyebrow{font-size:10px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;display:flex;align-items:center;gap:14px}
-.adm-hero-eyebrow::before{content:'';display:block;width:32px;height:1px;background:var(--gold)}
-.adm-hero h1{font-family:var(--font-serif);font-size:clamp(48px,6.5vw,88px);font-weight:700;color:#fff;line-height:1.05;margin-bottom:24px}
-.adm-hero h1 em{font-style:italic;font-weight:400}
-.adm-hero-sub{font-size:17px;color:rgba(255,255,255,0.65);line-height:1.8;max-width:520px;margin-bottom:40px}
-.adm-hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.adm-hero{display:grid;grid-template-columns:1fr 1fr;min-height:100vh}
+.adm-hero-img{position:relative;overflow:hidden}
+.adm-hero-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.adm-hero-content{background:var(--navy);display:flex;flex-direction:column;justify-content:center;padding:120px 72px 80px}
+.adm-hero-content .eyebrow{color:rgba(201,168,76,0.8);margin-bottom:20px}
+.adm-hero-content .eyebrow::before{background:rgba(201,168,76,0.8)}
+.adm-hero-content h1{font-family:var(--font-serif);font-size:clamp(32px,3.5vw,50px);font-weight:700;color:#fff;line-height:1.15;margin-bottom:28px}
+.adm-hero-content h1 em{font-style:italic;font-weight:400}
+.adm-hero-body{font-size:15px;color:rgba(255,255,255,0.65);line-height:1.85;margin-bottom:14px}
+.adm-hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
 .adm-btn-gold{display:inline-flex;align-items:center;gap:9px;background:var(--gold);color:var(--navy);font-size:11px;font-weight:700;letter-spacing:0.11em;text-transform:uppercase;padding:15px 30px;border-radius:3px;text-decoration:none;transition:background 0.2s}
 .adm-btn-gold:hover{background:var(--gold-light)}
-.adm-btn-ghost{display:inline-flex;align-items:center;gap:9px;color:rgba(255,255,255,0.7);font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:15px 26px;border:1px solid rgba(255,255,255,0.25);border-radius:3px;text-decoration:none;transition:all 0.2s}
-.adm-btn-ghost:hover{color:#fff;border-color:rgba(255,255,255,0.7)}
-.adm-scroll-hint{position:absolute;right:52px;bottom:48px;z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px}
-.adm-scroll-hint span{width:1px;height:48px;background:linear-gradient(to bottom,var(--gold),transparent)}
-.adm-scroll-hint small{font-size:8px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.3);writing-mode:vertical-rl}
+.adm-btn-ghost{display:inline-flex;align-items:center;gap:9px;color:rgba(255,255,255,0.5);font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:15px 26px;border:1px solid rgba(255,255,255,0.2);border-radius:3px;text-decoration:none;transition:all 0.2s}
+.adm-btn-ghost:hover{color:#fff;border-color:rgba(255,255,255,0.6)}
 </style>
 </head>
 <body>
@@ -47,18 +44,19 @@
 </nav>
 
 <section class="adm-hero">
-  <img class="adm-hero-img" src="https://resources.finalsite.net/images/f_auto,q_auto,t_image_size_4/v1748025023/salesianhantsschuk/zqtpbbnyp0s7sfugpvhz/IMG_4865.jpg" alt="Admissions at Salesian College" loading="eager" decoding="async">
-  <div class="adm-hero-overlay"></div>
+  <div class="adm-hero-img">
+    <img src="https://resources.finalsite.net/images/f_auto,q_auto,t_image_size_4/v1748025023/salesianhantsschuk/zqtpbbnyp0s7sfugpvhz/IMG_4865.jpg" alt="Admissions at Salesian College" loading="eager" decoding="async">
+  </div>
   <div class="adm-hero-content">
-    <div class="adm-hero-eyebrow">Admissions &middot; Salesian College &middot; Farnborough</div>
+    <div class="eyebrow">Admissions &middot; Farnborough</div>
     <h1>The start of<br>something <em>extraordinary.</em></h1>
-    <p class="adm-hero-sub">Joining Salesian is the beginning of a journey that will shape your son for life. Discover how to apply for Year 7, in-year, or Sixth Form entry.</p>
+    <p class="adm-hero-body">Joining Salesian is the beginning of a journey that will shape your son for life. We welcome boys of all faiths who are ready to embrace everything school life has to offer.</p>
+    <p class="adm-hero-body">Discover how to apply for Year 7, in-year, or Sixth Form entry &mdash; our admissions team is here to guide you every step of the way.</p>
     <div class="adm-hero-actions">
       <a href="enquiries.html" class="adm-btn-gold"><i class="ti ti-pencil" style="font-size:15px"></i> Register your interest</a>
       <a href="#year7" class="adm-btn-ghost">How to apply <i class="ti ti-arrow-down" style="font-size:13px"></i></a>
     </div>
   </div>
-  <div class="adm-scroll-hint"><span></span><small>scroll</small></div>
 </section>
 
 <!-- Intro -->
