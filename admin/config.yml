@@ -2,8 +2,7 @@ backend:
   name: github
   repo: DanWilliams2026/salesian-concept
   branch: master
-  auth_type: pkce
-  app_id: Ov23li4pIovpC3rhHqUu
+  base_url: https://salesian-oauth.dan-williams.workers.dev
 
 media_folder: "uploads"
 public_folder: "/uploads"
