@@ -62,6 +62,15 @@
       "image": "https://resources.finalsite.net/images/f_auto,q_auto,t_image_size_4/v1750844985/salesianhantsschuk/vzc3iv2iympb59yzyluj/homepage2025-1.jpg",
       "featured": false,
       "body": "Pupils, staff, and families came together at the annual Christmas concert, with all proceeds donated to charities supported by the Salesian community."
+    },
+    {
+      "title": "test123",
+      "date": "2026-07-04",
+      "category": "Sport",
+      "summary": "test 123 test 123",
+      "image": "/uploads/IMG_3583.jpg",
+      "featured": true,
+      "body": ""
     }
   ]
 }
