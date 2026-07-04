@@ -4,8 +4,6 @@ backend:
   branch: master
   auth_type: pkce
   app_id: Ov23li4pIovpC3rhHqUu
-  base_url: https://salesian-concept.dan-williams.workers.dev
-  auth_endpoint: admin/index.html
 
 media_folder: "uploads"
 public_folder: "/uploads"
