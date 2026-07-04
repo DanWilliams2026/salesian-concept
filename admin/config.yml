@@ -3,7 +3,7 @@ backend:
   repo: DanWilliams2026/salesian-concept
   branch: master
   auth_type: pkce
-  app_id: REPLACE_WITH_YOUR_GITHUB_OAUTH_APP_CLIENT_ID
+  app_id: Ov23li4pIovpC3rhHqUu
 
 media_folder: "uploads"
 public_folder: "/uploads"
